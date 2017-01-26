@@ -6,7 +6,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class ChooseBlockTileEntity extends TileEntity  {
+public class ChooseBlockTileEntity extends TileEntity{
 	private ResourceLocation resourceLocation;
     private ModelBase model;
 

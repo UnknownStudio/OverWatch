@@ -1,6 +1,6 @@
 package com.ow.event;
 
-import com.ow.skill.SkillBase;
+import com.ow.skill.AbstractHero;
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -13,8 +13,8 @@ public class SkillTiggerEvent extends net.minecraftforge.event.entity.player.Pla
     public final World tiggerWorld;
     public final EntityPlayer thePlayer;
     public final int skill;
-    public final SkillBase skill_from;
-    public SkillTiggerEvent(EntityPlayer player, World world, int skillId, SkillBase skill_list) {
+    public final AbstractHero skill_from;
+    public SkillTiggerEvent(EntityPlayer player, World world, int skillId, AbstractHero skill_list) {
         super(player);
         thePlayer = player;
         tiggerWorld = world;

@@ -71,34 +71,14 @@ public class YourGui extends GuiScreen{
     }
     @Override
     protected void actionPerformed(GuiButton button) {
-		int id = button.id;
-        if(id == 23) {
-			mc.displayGuiScreen(parentScreen);
-		}
-        if(id == 0){}
-        if(id == 1){}
-        if(id == 2){}
-        if(id == 3){}
-        if(id == 4){}
-        if(id == 5){}
-        if(id == 6){}
-        if(id == 7){}
-        if(id == 8){}
-        if(id == 9){}
-        if(id == 10){}
-        if(id == 11){}
-        if(id == 12){}
-        if(id == 13){}
-        if(id == 14){}
-        if(id == 15){}
-        if(id == 16){}
-        if(id == 17){}
-        if(id == 18){}
-        if(id == 19){}
-        if(id == 20){}
-        if(id == 21){}
-        if(id == 22){}
-		//old gay wen,我会让你因为这个而付出代价的
+        if(!button.enabled) return;
+        switch (button.id){
+            case 23: {
+                mc.displayGuiScreen(parentScreen);
+                break;
+            }default:
+                break;
+        }
     }
 
     public static void drawScaledCustomSizeModalRect(int x, int y, float u, float v, int uWidth, int vHeight, int width, int height, float tileWidth, float tileHeight) {
@@ -118,10 +98,10 @@ public class YourGui extends GuiScreen{
     	    mc.displayGuiScreen(parentScreen);
     	super.keyTyped(p_73869_1_, p_73869_2_);
     }
-    @Override
+    /*@Override
     protected void mouseClicked(int p_73864_1_, int p_73864_2_, int p_73864_3_) {
-    	    Keyboard.enableRepeatEvents(true); //只有当输入框成为焦点时才打开键盘连续输入,这是为了防止玩家打开菜单时按住按键不放,从而导致菜单打开后又立刻关闭的情况.
-    	    Keyboard.enableRepeatEvents(false);
+        Keyboard.enableRepeatEvents(true); //只有当输入框成为焦点时才打开键盘连续输入,这是为了防止玩家打开菜单时按住按键不放,从而导致菜单打开后又立刻关闭的情况.
+        Keyboard.enableRepeatEvents(false);
     	super.mouseClicked(p_73864_1_, p_73864_2_, p_73864_3_);
-    }
+    }*/
 }
