@@ -1,8 +1,6 @@
-package com.ow.skill;
+package com.ow.hero;
 
 import com.ow.init.common.ItemLoader;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

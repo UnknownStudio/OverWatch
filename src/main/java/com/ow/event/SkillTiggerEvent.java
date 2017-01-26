@@ -1,6 +1,6 @@
 package com.ow.event;
 
-import com.ow.skill.AbstractHero;
+import com.ow.hero.AbstractHero;
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

@@ -1,4 +1,4 @@
-package com.ow.skill;
+package com.ow.hero;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -40,6 +40,7 @@ public abstract class AbstractHero {
         this.unlocalizedName = unlocalizedName;
     }
 
+    @SideOnly(Side.CLIENT)
     private ResourceLocation heroResourceLocation;
 
     /**
@@ -101,7 +102,7 @@ public abstract class AbstractHero {
      * @return
      */
     public boolean isHeroSuit(EntityPlayer player){
-        for(int i=0;i<=3;i++) return player.getCurrentArmor(i)==null||!heroSuit[i].equals(player.getCurrentArmor(i).getItem());
+        for(int i=0;i<=3;i++) if(player.getCurrentArmor(i)==null||!heroSuit[i].equals(player.getCurrentArmor(i).getItem())) return false;
         return true;
     }
 

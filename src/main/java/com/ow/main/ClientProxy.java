@@ -1,14 +1,11 @@
 package com.ow.main;
 
 import com.ow.init.client.RenderLoader;
-import com.ow.skill.HeroManager;
 import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Keyboard;
 
 public class ClientProxy extends CommonProxy{
@@ -29,9 +26,6 @@ public class ClientProxy extends CommonProxy{
     public void init(FMLInitializationEvent event)
     {
         super.init(event);
-
-        MinecraftForge.EVENT_BUS.register(new HeroManager());
-        FMLCommonHandler.instance().bus().register(new HeroManager());
 
         ClientRegistry.registerKeyBinding(kbShowNewGui);
         ClientRegistry.registerKeyBinding(sk1);
