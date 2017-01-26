@@ -40,14 +40,12 @@ public abstract class AbstractHero {
         this.unlocalizedName = unlocalizedName;
     }
 
-    @SideOnly(Side.CLIENT)
     private ResourceLocation heroResourceLocation;
 
     /**
      * 获取英雄资源
      * @return
      */
-    @SideOnly(Side.CLIENT)
     public ResourceLocation getHeroResourceLocation(){
         return heroResourceLocation;
     }
@@ -56,7 +54,6 @@ public abstract class AbstractHero {
      * 设置英雄资源
      * @param heroResourceLocation
      */
-    @SideOnly(Side.CLIENT)
     public void setHeroResourceLocation(ResourceLocation heroResourceLocation){
         this.heroResourceLocation = heroResourceLocation;
     }
@@ -66,7 +63,6 @@ public abstract class AbstractHero {
      * @param skill
      * @return
      */
-    @SideOnly(Side.CLIENT)
     public abstract ResourceLocation getSkillResourceLocation(int skill);
 
     /**
