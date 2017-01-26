@@ -18,7 +18,9 @@ public final class SkillTriggerMessage implements IMessage{
 
     private int skill;
 
-    public SkillTriggerMessage(int skill){}
+    public SkillTriggerMessage(int skill){
+        this.skill = skill;
+    }
 
     public SkillTriggerMessage(){}
 
@@ -40,7 +42,7 @@ public final class SkillTriggerMessage implements IMessage{
             AbstractHero hero = getHero(player);
             if (hero==null) return null;
 
-            if (getCooldownTime(player,message.skill) == 0) {
+            if (getCooldownTime(player,message.skill) <= 0) {
 
                 SkillTiggerEvent sevent = new SkillTiggerEvent(player, player.worldObj, message.skill, hero);
                 MinecraftForge.EVENT_BUS.post(sevent);

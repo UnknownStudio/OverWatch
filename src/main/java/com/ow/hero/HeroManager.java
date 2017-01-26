@@ -50,7 +50,7 @@ public class HeroManager {
 
     public static void setCooldownTime(EntityPlayer player,int skill,int cd){
         ItemStack item = player.getCurrentArmor(1);
-        if(item==null||!item.hasTagCompound()) return;
+        if(item==null) return;
         item.setTagInfo("cd"+skill,new NBTTagInt(cd));
     }
 
@@ -80,9 +80,9 @@ public class HeroManager {
         fontRenderer.drawStringWithShadow(hero.getLocalizedName(), 32, 12, 0xFFFFFF);
 
         //渲染技能CD
-        Gui.drawRect(width - 40, height / 2 - 100, width - getCooldownTime(player,0), height / 2 - 55, 0x20FFFFFF);
-        Gui.drawRect(width - 40, height / 2 - 55, width - getCooldownTime(player,1), height / 2 - 21, 0x20FFFFFF);
-        Gui.drawRect(width - 40, height / 2 - 21, width - 40 + getCooldownTime(player,2) * (40 / hero.getSkillMaxCooldownTime(2)), height, 0x20FFFF55);
+        Gui.drawRect(width - 40, height / 2 - 100, width - 40*getCooldownTime(player,0)/hero.getSkillMaxCooldownTime(0), height / 2 - 55, 0x20FFFFFF);
+        Gui.drawRect(width - 40, height / 2 - 55, width - 40*getCooldownTime(player,1)/hero.getSkillMaxCooldownTime(1), height / 2 - 21, 0x20FFFFFF);
+        Gui.drawRect(width - 40, height / 2 - 21, width - 40*getCooldownTime(player,2)/hero.getSkillMaxCooldownTime(2), height, 0x20FFFF55);
 
         //Bind
         fontRenderer.drawStringWithShadow("", 0, 0, 0xFFFFFF);
@@ -102,8 +102,6 @@ public class HeroManager {
         final EntityPlayer player = Minecraft.getMinecraft().thePlayer;
         final AbstractHero hero = getHero(player);
         if (hero==null) return;
-
-        if (!player.getCurrentArmor(1).hasTagCompound()) return;
 
         int skill = 0;
         if (ClientProxy.sk1.isPressed()) skill=0;
