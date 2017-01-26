@@ -1,1 +1,22 @@
-/bin/
+# Use Whitelist Mode
+/*
+
+# Gradle Files
+!gradle/
+!gradlew
+!gradlew.bat
+!build.gradle
+!gradle.properties
+
+# Description Files
+!README.md
+!LICENSE
+
+# Source Code
+!src/
+
+#Git File
+!.gitignore
+
+#DS
+*.DS_Store
