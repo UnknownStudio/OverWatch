@@ -7,9 +7,11 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.EventBus;
 
 @Mod(modid = OverWatch.MODID, name = OverWatch.NAME, version = OverWatch.VERSION)
 public class OverWatch {
+    public static final EventBus EVENT_BUS = new EventBus();
 	public static final String MODID = "overwatch";
     public static final String NAME = "Over Watch";
     public static final String VERSION = "1.0.0v";
