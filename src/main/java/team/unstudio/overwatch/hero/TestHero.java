@@ -48,7 +48,7 @@ public class TestHero extends AbstractHero {
     }
 
     @Override
-    public void playerTigger(int skill, EntityPlayer player) {
+    public void playerTrigger(int skill, EntityPlayer player) {
         switch (skill) {
             case 0: {
                 player.addPotionEffect(new PotionEffect(1, 200, 200));

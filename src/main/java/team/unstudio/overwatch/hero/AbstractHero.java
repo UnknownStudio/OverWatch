@@ -93,7 +93,7 @@ public abstract class AbstractHero {
      * @param skill
      * @param player
      */
-    public abstract void playerTigger(int skill, EntityPlayer player);
+    public abstract void playerTrigger(int skill, EntityPlayer player);
 
     private ItemArmor heroSuit[] = new ItemArmor[4];
 

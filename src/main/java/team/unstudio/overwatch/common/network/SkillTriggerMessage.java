@@ -47,7 +47,7 @@ public final class SkillTriggerMessage implements IMessage{
                 MinecraftForge.EVENT_BUS.post(sevent);
                 if (sevent.isCanceled()) return null;
 
-                hero.playerTigger(message.skill, player);
+                hero.playerTrigger(message.skill, player);
                 setCooldownTime(player,message.skill,hero.getSkillMaxCooldownTime(message.skill));
             }
             return null;
