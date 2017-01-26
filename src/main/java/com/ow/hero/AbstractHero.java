@@ -113,9 +113,9 @@ public abstract class AbstractHero {
     public void setHeroSuit(ItemArmor helmet,ItemArmor chestplates,ItemArmor legging,ItemArmor boots){
         if(helmet==null||chestplates==null||legging==null||boots==null) throw new IllegalArgumentException("NULL!");
 
-        heroSuit[0]=helmet;
-        heroSuit[1]=chestplates;
-        heroSuit[2]=legging;
-        heroSuit[3]=boots;
+        heroSuit[3]=helmet;
+        heroSuit[2]=chestplates;
+        heroSuit[1]=legging;
+        heroSuit[0]=boots;
     }
 }
