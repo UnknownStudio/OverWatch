@@ -111,14 +111,19 @@ public class HeroManager {
         else if (ClientProxy.sk3.isPressed()) skill=2;
         else return;
 
-        if (getCooldownTime(player,skill) == 0) {
+        if (getCooldownTime(player,skill) <= 0) {
             SkillTiggerEvent sevent = new SkillTiggerEvent(player, player.worldObj, skill, hero);
             MinecraftForge.EVENT_BUS.post(sevent);
             if (!sevent.isCanceled()) OverWatch.Network.sendToServer(new SkillTriggerMessage(skill));
         }
     }
 
-    public void onUpdate(TickEvent.PlayerTickEvent event){
-
+    @SubscribeEvent
+    public void onTick(TickEvent.PlayerTickEvent event){
+        EntityPlayer player = event.player;
+        for(int i=0;i<3;i++) {
+            if(getCooldownTime(player,i)==0) continue;
+            setCooldownTime(player,i,getCooldownTime(player,i)-1);
+        }
     }
 }
