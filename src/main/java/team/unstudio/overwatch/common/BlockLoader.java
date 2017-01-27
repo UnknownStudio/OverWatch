@@ -1,7 +1,7 @@
 package team.unstudio.overwatch.common;
 
 import team.unstudio.overwatch.block.ChooseBlock;
-import team.unstudio.overwatch.creativetabs.CreativeTabsLoader;
+import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;

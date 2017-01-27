@@ -1,6 +1,6 @@
 package team.unstudio.overwatch.common;
 
-import team.unstudio.overwatch.creativetabs.CreativeTabsLoader;
+import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
 import team.unstudio.overwatch.item.ItemDart;
 import team.unstudio.overwatch.item.KuangShuWQ;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

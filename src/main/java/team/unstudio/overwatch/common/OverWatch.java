@@ -1,5 +1,6 @@
 package team.unstudio.overwatch.common;
 
+import team.unstudio.overwatch.common.network.SkillTriggerClientMessage;
 import team.unstudio.overwatch.common.network.SkillTriggerMessage;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -32,6 +33,7 @@ public class OverWatch {
     public void preInit(FMLPreInitializationEvent event) {
         Network = NetworkRegistry.INSTANCE.newSimpleChannel("OverWatch");
         Network.registerMessage(new SkillTriggerMessage.Handler(),SkillTriggerMessage.class,0, Side.SERVER);
+        Network.registerMessage(new SkillTriggerClientMessage.Handler(),SkillTriggerClientMessage.class,1, Side.CLIENT);
         proxy.preInit(event);
     }
 

@@ -1,7 +1,5 @@
-package team.unstudio.overwatch.creativetabs;
+package team.unstudio.overwatch.client.creativetabs;
 
-import team.unstudio.overwatch.creativetabs.CreativeTabWQ;
-import team.unstudio.overwatch.creativetabs.CreativeTabsOW;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.creativetab.CreativeTabs;
 

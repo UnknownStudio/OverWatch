@@ -1,4 +1,4 @@
-package team.unstudio.overwatch.creativetabs;
+package team.unstudio.overwatch.client.creativetabs;
 
 import team.unstudio.overwatch.common.ItemLoader;
 

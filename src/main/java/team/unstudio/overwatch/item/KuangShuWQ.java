@@ -1,7 +1,7 @@
 package team.unstudio.overwatch.item;
 
 import team.unstudio.overwatch.entity.KuangShuZDEntity;
-import team.unstudio.overwatch.creativetabs.CreativeTabsLoader;
+import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

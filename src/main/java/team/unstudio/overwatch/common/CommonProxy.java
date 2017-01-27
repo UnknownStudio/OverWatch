@@ -1,6 +1,6 @@
 package team.unstudio.overwatch.common;
 
-import team.unstudio.overwatch.creativetabs.CreativeTabsLoader;
+import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
 import team.unstudio.overwatch.hero.HeroManager;
 import team.unstudio.overwatch.hero.TestHero;
 import team.unstudio.overwatch.tileentity.ChooseBlockTileEntity;
