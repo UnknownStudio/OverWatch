@@ -89,11 +89,19 @@ public abstract class AbstractHero {
     }
 
     /**
-     * 执行技能
+     * 玩家触发技能
      * @param skill
      * @param player
      */
     public abstract void playerTrigger(int skill, EntityPlayer player);
+
+    /**
+     * 玩家触发技能（客户端）
+     * @param skill
+     * @param player
+     */
+    @SideOnly(Side.CLIENT)
+    public abstract void playerTriggerInClient(int skill, EntityPlayer player);
 
     private ItemArmor heroSuit[] = new ItemArmor[4];
 

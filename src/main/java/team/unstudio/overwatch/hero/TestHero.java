@@ -1,5 +1,7 @@
 package team.unstudio.overwatch.hero;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import team.unstudio.overwatch.common.ItemLoader;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -66,4 +68,8 @@ public class TestHero extends AbstractHero {
             default: break;
         }
     }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void playerTriggerInClient(int skill, EntityPlayer player) {}
 }

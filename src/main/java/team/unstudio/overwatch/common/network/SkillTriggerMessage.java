@@ -49,6 +49,7 @@ public final class SkillTriggerMessage implements IMessage{
 
                 hero.playerTrigger(message.skill, player);
                 setCooldownTime(player,message.skill,hero.getSkillMaxCooldownTime(message.skill));
+                return new SkillTriggerClientMessage(message.skill);
             }
             return null;
         }
