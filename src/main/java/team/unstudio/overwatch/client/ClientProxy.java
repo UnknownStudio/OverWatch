@@ -1,5 +1,9 @@
 package team.unstudio.overwatch.client;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.MinecraftForgeClient;
+import team.unstudio.overwatch.client.render.HugeItemRenderer;
 import team.unstudio.overwatch.common.CommonProxy;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -7,6 +11,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.client.settings.KeyBinding;
 import org.lwjgl.input.Keyboard;
+import team.unstudio.overwatch.common.ItemLoader;
 
 public class ClientProxy extends CommonProxy {
 	public static int renderChooseBlock;
@@ -19,7 +24,10 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event)
     {
         super.preInit(event);
-    	new RenderLoader(event);
+        Minecraft mc = FMLClientHandler.instance().getClient();
+        new RenderLoader(event);
+        HugeItemRenderer hugeItemRenderer = new HugeItemRenderer(mc.gameSettings);
+        MinecraftForgeClient.registerItemRenderer(ItemLoader.dragonsword, hugeItemRenderer);
     }
 
     @Override

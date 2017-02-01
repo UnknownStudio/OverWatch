@@ -21,7 +21,7 @@ public class BlockLoader {
     {
         GameRegistry.registerBlock(block, name);
         block.setBlockName(name);
-        block.setCreativeTab(CreativeTabsLoader.CreativeTabsWQ);
+        block.setCreativeTab(CreativeTabsLoader.CreativeTabsOW);
     }
     @SideOnly(Side.CLIENT)
     public static void registerRenders(){

@@ -1,20 +1,31 @@
 package team.unstudio.overwatch.client.gui;
 
+import ibxm.Player;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.IChatComponent;
+import scala.tools.nsc.doc.model.Public;
 import team.unstudio.overwatch.client.ClientProxy;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
+import team.unstudio.overwatch.common.ItemLoader;
+import team.unstudio.overwatch.common.OverWatch;
+import team.unstudio.overwatch.common.network.ItemGiveMessage;
+import team.unstudio.overwatch.event.SkillTiggerEvent;
+import team.unstudio.overwatch.hero.YuanShi;
 
 public class YourGui extends GuiScreen{
-	private ResourceLocation texture = new ResourceLocation("overwatch", "textures/gui/beijing"+(int)(1+Math.random()*(5-1+1))+".png"); 
+    private ResourceLocation texture = new ResourceLocation("overwatch", "textures/gui/beijing"+(int)(1+Math.random()*(5-1+1))+".png");
     private GuiScreen parentScreen;
- 
     public YourGui(GuiScreen parent)
     {
          parentScreen = parent; //记下是哪个界面打开了它,以便以后返回那个界面
-        //在这里初始化与界面无关的数据,或者是只需初始化一次的数据.
     }
  
     public void initGui()
@@ -76,6 +87,11 @@ public class YourGui extends GuiScreen{
                 break;
             }default:
                 break;
+        }
+        if(button.id ==0){
+            ItemGiveMessage itemgivemessage = new ItemGiveMessage();
+            OverWatch.Network.sendToServer(itemgivemessage);
+            mc.displayGuiScreen(parentScreen);
         }
     }
 

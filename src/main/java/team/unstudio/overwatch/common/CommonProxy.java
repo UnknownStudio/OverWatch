@@ -2,7 +2,7 @@ package team.unstudio.overwatch.common;
 
 import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
 import team.unstudio.overwatch.hero.HeroManager;
-import team.unstudio.overwatch.hero.TestHero;
+import team.unstudio.overwatch.hero.YuanShi;
 import team.unstudio.overwatch.tileentity.ChooseBlockTileEntity;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -21,13 +21,14 @@ public class CommonProxy {
         new ItemLoader(event);
         new BlockLoader(event);
         new EntityLoader(event);
+        new ArmorLoader();
 
         MinecraftForge.EVENT_BUS.register(new HeroManager());
         FMLCommonHandler.instance().bus().register(new HeroManager());
 
         GameRegistry.registerTileEntity(ChooseBlockTileEntity.class,"TileChooseBlock");
 
-        HeroManager.addHero(new TestHero());
+        HeroManager.addHero(new YuanShi());
     }
 
     public void postInit(FMLPostInitializationEvent event) {
