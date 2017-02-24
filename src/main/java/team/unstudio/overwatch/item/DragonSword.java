@@ -1,9 +1,11 @@
 package team.unstudio.overwatch.item;
 
         import cpw.mods.fml.common.registry.GameRegistry;
+        import net.minecraft.entity.Entity;
         import net.minecraft.item.Item;
         import net.minecraft.item.ItemStack;
         import net.minecraft.item.ItemSword;
+        import net.minecraft.world.World;
 
 /**
  * Created by KevinWalker on 2017/2/1.
