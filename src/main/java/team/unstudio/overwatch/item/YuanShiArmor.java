@@ -13,26 +13,28 @@ import team.unstudio.overwatch.common.OverWatch;
  */
 public class YuanShiArmor extends ItemArmor {
     private static Object shiftedIndex;
-
-    public YuanShiArmor(ItemArmor.ArmorMaterial material, int id, int slot)
+    public String name;
+    public YuanShiArmor(ItemArmor.ArmorMaterial material, int id, int slot,String name)
     {
         super(material, id, slot);
+        this.name=name;
         setCreativeTab(CreativeTabsLoader.CreativeTabsOW);
         if (slot == 0)
-            setTextureName("overwatch:yuanshitk");
+            setTextureName("overwatch:"+name+"tk");
         else if (slot == 1)
-            setTextureName("overwatch:yuanshikj");
+            setTextureName("overwatch:"+name+"kj");
         else if (slot == 2)
-            setTextureName("overwatch:yuanshikz");
+            setTextureName("overwatch:"+name+"kz");
         else if (slot == 3)
-            setTextureName("overwatch:yuanshixz");
+            setTextureName("overwatch:"+name+"xz");
     }
-    public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type)
+    public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type,String txtname)
     {
+        this.name=txtname;
         if ((itemstack.getItem() == ArmorLoader.YuanshiHelmet) || (itemstack.getItem() == ArmorLoader.YuanshiChestplate) || (itemstack.getItem() == ArmorLoader.YuanshiBoots))
-            return "overwatch:textures/models/armor/yuanshi_layer_1.png";
+            return "overwatch:textures/models/armor/"+txtname+"_1.png";
         if (itemstack.getItem() == ArmorLoader.YuanshiLeggings) {
-            return "overwatch:textures/models/armor/yuanshi_layer_2.png";
+            return "overwatch:textures/models/armor/"+txtname+"_2.png";
         }
         return null;
     }
