@@ -15,8 +15,8 @@ import team.unstudio.overwatch.common.ItemLoader;
 
 public class ClientProxy extends CommonProxy {
 	public static int renderChooseBlock;
-    public static final KeyBinding kbShowNewGui = new KeyBinding("overwatch.key.shownewgui", Keyboard.KEY_H, "overwatch.keytitle");
-    public static final KeyBinding sk1 = new KeyBinding("overwatch.key.sk1", Keyboard.KEY_C, "overwatch.keytitle");
+	public static final KeyBinding kbShowNewGui = new KeyBinding("overwatch.key.shownewgui", Keyboard.KEY_H, "overwatch.keytitle");
+    public static final KeyBinding sk1 = new KeyBinding("overwatch.key..sk1", Keyboard.KEY_C, "overwatch.keytitle");
     public static final KeyBinding sk2 = new KeyBinding("overwatch.key.sk2", Keyboard.KEY_V, "overwatch.keytitle");
     public static final KeyBinding sk3 = new KeyBinding("overwatch.key.sk3", Keyboard.KEY_B, "overwatch.keytitle");
 

@@ -1,9 +1,7 @@
 package team.unstudio.overwatch.common;
 
 import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
-import team.unstudio.overwatch.hero.BanZang;
 import team.unstudio.overwatch.hero.HeroManager;
-import team.unstudio.overwatch.hero.KuangShu;
 import team.unstudio.overwatch.hero.YuanShi;
 import team.unstudio.overwatch.tileentity.ChooseBlockTileEntity;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -31,8 +29,6 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(ChooseBlockTileEntity.class,"TileChooseBlock");
 
         HeroManager.addHero(new YuanShi());
-        HeroManager.addHero(new BanZang());
-        HeroManager.addHero(new KuangShu());
     }
 
     public void postInit(FMLPostInitializationEvent event) {

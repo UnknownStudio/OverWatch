@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MathHelper;
 import team.unstudio.overwatch.common.ArmorLoader;
 import team.unstudio.overwatch.common.ItemLoader;
@@ -20,11 +19,11 @@ import team.unstudio.overwatch.entity.YuanShiEEntity;
  * Created by winston_wang on 2017/1/23.
  */
 public class YuanShi extends AbstractHero {
-    private final int skillCD[] = new int[]{130, 300, 1000};
+    private final int skillCD[] = new int[]{130,300,1000};
     private final ResourceLocation skillRes[] = new ResourceLocation[]{
-            new ResourceLocation("overwatch", "textures/items/yuanshi1.png"),
-            new ResourceLocation("overwatch", "textures/items/yuanshi2.png"),
-            new ResourceLocation("overwatch", "textures/items/yuanshi3.png")
+            new ResourceLocation("overwatch","textures/items/yuanshi1.png"),
+            new ResourceLocation("overwatch","textures/items/yuanshi2.png"),
+            new ResourceLocation("overwatch","textures/items/yuanshi3.png")
     };
     private final String skillName[] = new String[]{
             "yuanshi1",
@@ -32,12 +31,12 @@ public class YuanShi extends AbstractHero {
             "yuanshi3",
     };
 
+
     public YuanShi() {
         setUnlocalizedName("yuanshi");
         setHeroResourceLocation(new ResourceLocation("overwatch", "textures/items/yuanshi.png"));
-        setHeroSuit((ItemArmor) ArmorLoader.YuanshiHelmet, (ItemArmor) ArmorLoader.YuanshiChestplate, (ItemArmor) ArmorLoader.YuanshiLeggings, (ItemArmor) ArmorLoader.YuanshiBoots);
+        setHeroSuit((ItemArmor) ArmorLoader.YuanshiHelmet,(ItemArmor)ArmorLoader.YuanshiChestplate,(ItemArmor)ArmorLoader.YuanshiLeggings,(ItemArmor)ArmorLoader.YuanshiBoots);
     }
-
     @Override
     public ResourceLocation getSkillResourceLocation(int skill) {
         return skillRes[skill];
@@ -55,8 +54,8 @@ public class YuanShi extends AbstractHero {
 
     @Override
     public void playerTrigger(int skill, EntityPlayer player) {
-        SprintEntity entity = new SprintEntity(player.getEntityWorld(), player, 4);
-        YuanShiEEntity entity2 = new YuanShiEEntity(player.getEntityWorld(), player.posX, player.posY, player.posZ);
+        SprintEntity entity =new SprintEntity(player.getEntityWorld(), player, 4);
+        YuanShiEEntity entity2 =new YuanShiEEntity(player.getEntityWorld(),player.posX,player.posY, player.posZ);
         switch (skill) {
             case 0: {
                 float angle = (player.rotationYaw / 180F) * 3.141593F;
@@ -77,8 +76,7 @@ public class YuanShi extends AbstractHero {
 
                 break;
             }
-            default:
-                break;
+            default: break;
         }
     }
 
@@ -88,8 +86,7 @@ public class YuanShi extends AbstractHero {
         switch (skill) {
             case 0: {
                 player.motionX = -Math.sin(Math.toRadians(player.rotationYaw)) * 2.5;
-                player.motionZ = Math.cos(Math.toRadians(player.rotationYaw)) * 2.5;
-                player.addChatMessage(new ChatComponentText("232313"));
+                player.motionZ =  Math.cos(Math.toRadians(player.rotationYaw)) * 2.5;
                 break;
             }
             case 1: {
@@ -99,8 +96,7 @@ public class YuanShi extends AbstractHero {
                 player.addPotionEffect(new PotionEffect(14, 200, 200));
                 break;
             }
-            default:
-                break;
+            default: break;
         }
     }
 }

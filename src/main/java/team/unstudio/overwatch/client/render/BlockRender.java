@@ -13,12 +13,11 @@ import net.minecraft.util.ResourceLocation;
 public class BlockRender extends TileEntitySpecialRenderer {
 	
 	private ChooseBlockModel model;
-	private ResourceLocation text =new ResourceLocation(OverWatch.MODID,"textures/models/ChooseBlock.png");
+	private ResourceLocation text = new ResourceLocation(OverWatch.MODID,"textures/models/ChooseBlock.png");
 	public BlockRender()
 	{
 		model=new ChooseBlockModel();
 	}
-
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z,
 			float scale) {
