@@ -11,6 +11,7 @@ public class ChooseBlockTileEntity extends TileEntity{
     private ModelBase model;
 
     public ChooseBlockTileEntity(Class<? extends ModelBase> modelClass, String texture) {
+
     }
 
     public ModelBase getModel() {
