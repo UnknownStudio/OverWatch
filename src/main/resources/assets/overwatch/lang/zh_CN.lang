@@ -6,6 +6,7 @@ item.knife.name=竜刃
 item.darts.name=竜镖
 item.banzangbow.name=半藏的弓
 item.kuangshuwq.name=狂鼠的榴弹枪
+item.kuangshure.name=狂鼠的引爆器
 
 itemGroup.OverWatchOW=守望先锋
 itemGroup.OverWatchWQ=方块列表
@@ -27,4 +28,6 @@ tile.ChooseBlock.name=英雄基站
 =================gui============================
 overwatch.keytitle=按钮
 hero.yuanshi.name=源氏
+hero.banzang.name=半藏
+hero.kuangshu.name=狂鼠
 overwatch.key.shownewgui=选择英雄界面

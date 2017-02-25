@@ -21,6 +21,8 @@ public class DragonSword extends ItemSword implements ItemHugh {
         this.weaponDamage = toolMaterial.getDamageVsEntity();
         this.setMaxDamage(5);
         this.baseItem=baseItem;
+        this.setFull3D();
+        this.isFull3D();
     }
     @Override
     public void addRepices() {

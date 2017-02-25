@@ -1,41 +1,40 @@
 package team.unstudio.overwatch.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import team.unstudio.overwatch.client.creativetabs.CreativeTabsLoader;
 import team.unstudio.overwatch.common.ArmorLoader;
 import team.unstudio.overwatch.common.OverWatch;
-
 /**
  * Created by KevinWalker on 2017/2/1.
  */
 public class YuanShiArmor extends ItemArmor {
-    private static Object shiftedIndex;
-    public String name;
-    public YuanShiArmor(ItemArmor.ArmorMaterial material, int id, int slot,String name)
+    public String textname;
+    public YuanShiArmor(ItemArmor.ArmorMaterial material, int id, int slot,String name,Item Helmet,Item Chestplate,Item Leggings,Item Boots)
     {
         super(material, id, slot);
-        this.name=name;
-        setCreativeTab(CreativeTabsLoader.CreativeTabsOW);
+        this.textname=name;
+        this.setCreativeTab(CreativeTabsLoader.CreativeTabsOW);
+        System.out.println(this.textname);
         if (slot == 0)
-            setTextureName("overwatch:"+name+"tk");
+            this.setTextureName("overwatch:"+name+"tk");
         else if (slot == 1)
-            setTextureName("overwatch:"+name+"kj");
+            this.setTextureName("overwatch:"+name+"kj");
         else if (slot == 2)
-            setTextureName("overwatch:"+name+"kz");
+            this.setTextureName("overwatch:"+name+"kz");
         else if (slot == 3)
-            setTextureName("overwatch:"+name+"xz");
+            this.setTextureName("overwatch:"+name+"xz");
     }
-    public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type,String txtname)
-    {
-        this.name=txtname;
-        if ((itemstack.getItem() == ArmorLoader.YuanshiHelmet) || (itemstack.getItem() == ArmorLoader.YuanshiChestplate) || (itemstack.getItem() == ArmorLoader.YuanshiBoots))
-            return "overwatch:textures/models/armor/"+txtname+"_1.png";
-        if (itemstack.getItem() == ArmorLoader.YuanshiLeggings) {
-            return "overwatch:textures/models/armor/"+txtname+"_2.png";
-        }
+
+    @Override
+    public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type) {
+        if ((itemstack.getItem() == ArmorLoader.YuanshiHelmet) || (itemstack.getItem() == ArmorLoader.YuanshiChestplate) || (itemstack.getItem() == ArmorLoader.YuanshiBoots) || (itemstack.getItem() == ArmorLoader.YuanshiLeggings))
+            return "overwatch:textures/models/armor/yuanshi_layer_1.png";
         return null;
     }
 }

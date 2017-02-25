@@ -19,6 +19,7 @@ public class ItemDart extends Item {
 	{
 		super();
 		this.setFull3D();
+		this.isFull3D();
         this.setMaxStackSize(1); 
         this.setMaxDamage(Int.MaxValue());
 	}
