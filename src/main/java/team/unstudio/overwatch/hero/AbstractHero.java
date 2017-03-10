@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import team.unstudio.overwatch.common.CommonProxy;
 
 /**
  * Created by winston_wang on 2017/1/23.
@@ -111,7 +112,7 @@ public abstract class AbstractHero {
      * @return
      */
     public boolean isHeroSuit(EntityPlayer player){
-        for(int i=0;i<=3;i++) if(player.getCurrentArmor(i)==null||!heroSuit[i].equals(player.getCurrentArmor(i).getItem())) return false;
+        for(int i=0;i<=3;i++) if(player.getCurrentArmor(i)==null||!heroSuit[i].equals(player.getCurrentArmor(i).getItem()))return false;
         return true;
     }
 
@@ -121,7 +122,6 @@ public abstract class AbstractHero {
      */
     public void setHeroSuit(ItemArmor helmet,ItemArmor chestplates,ItemArmor legging,ItemArmor boots){
         if(helmet==null||chestplates==null||legging==null||boots==null) throw new IllegalArgumentException("NULL!");
-
         heroSuit[3]=helmet;
         heroSuit[2]=chestplates;
         heroSuit[1]=legging;

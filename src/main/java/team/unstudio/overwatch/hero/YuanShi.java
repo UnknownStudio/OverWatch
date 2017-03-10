@@ -89,7 +89,6 @@ public class YuanShi extends AbstractHero {
             case 0: {
                 player.motionX = -Math.sin(Math.toRadians(player.rotationYaw)) * 2.5;
                 player.motionZ = Math.cos(Math.toRadians(player.rotationYaw)) * 2.5;
-                player.addChatMessage(new ChatComponentText("232313"));
                 break;
             }
             case 1: {

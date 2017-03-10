@@ -1,5 +1,10 @@
 package team.unstudio.overwatch.hero;
 
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import net.minecraftforge.client.GuiIngameForge;
 import team.unstudio.overwatch.event.SkillTiggerEvent;
 import team.unstudio.overwatch.client.gui.YourGui;
 import team.unstudio.overwatch.client.ClientProxy;
@@ -83,6 +88,7 @@ public class HeroManager {
         final int height = event.resolution.getScaledWidth();
         final EntityPlayer player = Minecraft.getMinecraft().thePlayer;
         final AbstractHero hero = getHero(player);
+        float playerhealth = mc.thePlayer.getHealth();
         if (hero==null) return;
 
         //渲染文字
@@ -98,8 +104,19 @@ public class HeroManager {
         Gui.func_146110_a(width - 40 + 2, height / 2 - 100 + 2 + 42 * 2, 0, 0, 30, 30, 30, 30);
         mc.renderEngine.bindTexture(hero.getHeroResourceLocation());
         Gui.func_146110_a(0, 0, 0, 0, 30, 30, 30, 30);
-        fontRenderer.drawStringWithShadow(hero.getLocalizedName(), 32, 12, 0xFFFFFF);
-
+        fontRenderer.drawStringWithShadow(hero.getLocalizedName(), 35, 8, 0xFFFFFF);
+        if (event.type == RenderGameOverlayEvent.ElementType.HEALTH) {
+            //渲染血条
+            event.setCanceled(true); //取消掉事件来阻止原图标的绘制
+            mc.renderEngine.bindTexture(new ResourceLocation("overwatch", "textures/gui/hp.png"));
+            Gui.func_146110_a(-4, 22,142, 36, (int)(playerhealth*7.1), 36, 142, 36);
+            String hp = String.format(StatCollector.translateToLocal("overwatch.health.name")+": %d/%d",
+                    MathHelper.ceiling_float_int(mc.thePlayer.getHealth()),
+                    MathHelper.ceiling_double_int(mc.thePlayer.getEntityAttribute(SharedMonsterAttributes.maxHealth).getAttributeValue()));
+            fontRenderer.drawStringWithShadow(hp, 55,13 , 0xFFFFFF);
+            fontRenderer.drawStringWithShadow(StatCollector.translateToLocal("overwatch.player.name")+": "+Minecraft.getMinecraft().thePlayer.getCommandSenderName(), 55,4 , 0xFFFFFF);
+            mc.renderEngine.bindTexture(Gui.icons);
+        }
         //渲染技能CD
         Gui.drawRect(width - 40, height / 2 - 100, width - 40*getCooldownTime(player,0)/hero.getSkillMaxCooldownTime(0), height / 2 - 55, 0x20FFFFFF);
         Gui.drawRect(width - 40, height / 2 - 55, width - 40*getCooldownTime(player,1)/hero.getSkillMaxCooldownTime(1), height / 2 - 21, 0x20FFFFFF);
@@ -109,7 +126,6 @@ public class HeroManager {
         fontRenderer.drawStringWithShadow("", 0, 0, 0xFFFFFF);
         mc.renderEngine.bindTexture(Gui.icons);
     }
-
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void keyListener(InputEvent.KeyInputEvent event) {

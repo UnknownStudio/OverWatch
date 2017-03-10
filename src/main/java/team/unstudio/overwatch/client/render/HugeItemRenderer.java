@@ -26,7 +26,6 @@ public class HugeItemRenderer implements IItemRenderer
 {
     private static final ResourceLocation RES_ITEM_GLINT = new ResourceLocation("textures/misc/enchanted_item_glint.png");
     private TextureManager texturemanager;
-
     public HugeItemRenderer(GameSettings gameSettings)
     {
         this.texturemanager = Minecraft.getMinecraft().renderEngine;
