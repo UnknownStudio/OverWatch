@@ -11,6 +11,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import team.unstudio.overwatch.common.ArmorLoader;
 import team.unstudio.overwatch.common.ItemLoader;
+import team.unstudio.overwatch.entity.DragonEntity;
 import team.unstudio.overwatch.entity.SprintEntity;
 import team.unstudio.overwatch.entity.YuanShiEEntity;
 
@@ -18,7 +19,8 @@ import team.unstudio.overwatch.entity.YuanShiEEntity;
  * Created by KevinWalker on 2017/2/6.
  */
 public class BanZang extends AbstractHero {
-    private final int skillCD[] = new int[]{130, 300, 1000};
+    public static int skillNum=0;
+    private final int skillCD[] = new int[]{130, 350, 1000};
     private final ResourceLocation skillRes[] = new ResourceLocation[]{
             new ResourceLocation("overwatch", "textures/items/banzang1.png"),
             new ResourceLocation("overwatch", "textures/items/banzang2.png"),
@@ -53,14 +55,17 @@ public class BanZang extends AbstractHero {
 
     @Override
     public void playerTrigger(int skill, EntityPlayer player) {
+        DragonEntity entity = new DragonEntity(player.getEntityWorld(), player);
         switch (skill) {
             case 0: {
+                this.skillNum=1;
                 break;
             }
             case 1: {
                 break;
             }
             case 2: {
+                player.getEntityWorld().spawnEntityInWorld(entity);
                 break;
             }
             default:

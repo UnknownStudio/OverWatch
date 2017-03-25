@@ -3,8 +3,6 @@ package team.unstudio.overwatch.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemBow;
@@ -16,7 +14,8 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import scala.Int;
 import team.unstudio.overwatch.common.OverWatch;
-import team.unstudio.overwatch.entity.DartEntity;
+import team.unstudio.overwatch.entity.BanZangArrow;
+import team.unstudio.overwatch.hero.BanZang;
 
 /**
  * Created by KevinWalker on 2017/2/25.
@@ -32,38 +31,24 @@ public class BangZangBow extends ItemBow {
         this.setFull3D();
         this.isFull3D();
     }
-
     public void onPlayerStoppedUsing(ItemStack p_77615_1_, World p_77615_2_, EntityPlayer p_77615_3_, int p_77615_4_) {
-        int j = this.getMaxItemUseDuration(p_77615_1_) - p_77615_4_;
-
-        ArrowLooseEvent event = new ArrowLooseEvent(p_77615_3_, p_77615_1_, j);
+        ArrowLooseEvent event = new ArrowLooseEvent(p_77615_3_, p_77615_1_,Integer.MAX_VALUE);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.isCanceled()) {
             return;
         }
-        j = event.charge;
-
-        boolean flag = p_77615_3_.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, p_77615_1_) > 0;
-
-        if (flag) {
-            float f = (float) j / 20.0F;
-            f = (f * f + f * 2.0F) / 3.0F;
-
-            if ((double) f < 0.1D) {
-                return;
-            }
-
-            if (f > 1.0F) {
-                f = 1.0F;
-            }
-
-            DartEntity entity = new DartEntity(p_77615_2_, p_77615_3_, 4);
-            p_77615_2_.playSoundAtEntity(p_77615_3_, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+            BanZangArrow entity = new BanZangArrow(p_77615_2_, p_77615_3_);
+            p_77615_2_.playSoundAtEntity(p_77615_3_, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) +  Integer.MAX_VALUE*0.5F);
 
             if (!p_77615_2_.isRemote) {
                 p_77615_2_.spawnEntityInWorld(entity);
+                if(BanZang.skillNum==1){
+                    p_77615_2_.spawnEntityInWorld(entity);
+                    p_77615_2_.spawnEntityInWorld(entity);
+                    p_77615_2_.spawnEntityInWorld(entity);
+                    BanZang.skillNum=0;
+                }
             }
-        }
     }
 
     public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_) {

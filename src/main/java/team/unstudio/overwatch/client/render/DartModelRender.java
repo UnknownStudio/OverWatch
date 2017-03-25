@@ -14,11 +14,11 @@ public class DartModelRender extends  Render{
 	private ResourceLocation text = new ResourceLocation(OverWatch.MODID,"textures/models/Darts.png");
 	@Override
 	public void doRender(Entity entity, double x, double y, double z,
-            float f, float f1) {
+            float f, float f1){
 		model=new DartModel();
 		GL11.glPushMatrix();
-		GL11.glTranslated(x+0.5, y+1.5, z+0.5);
-		GL11.glRotated(180, 0, 0, 1);
+		GL11.glTranslated(x, y, z);
+		GL11.glRotatef(entity.rotationYaw, 0, 0, 0);
 		this.bindTexture(text);
 		this.model.render(entity, 0, -0.1f, 0, 0, 0, 0.0625f);
 		GL11.glPopMatrix();
@@ -29,5 +29,4 @@ public class DartModelRender extends  Render{
 
 		return null;
 	}
-
 }

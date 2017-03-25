@@ -21,6 +21,7 @@ import team.unstudio.overwatch.event.SkillTiggerEvent;
 import team.unstudio.overwatch.hero.YuanShi;
 
 public class YourGui extends GuiScreen{
+    public static int heronum;
     private ResourceLocation texture = new ResourceLocation("overwatch", "textures/gui/beijing"+(int)(1+Math.random()*(5-1+1))+".png");
     private GuiScreen parentScreen;
     public YourGui(GuiScreen parent)
@@ -80,6 +81,7 @@ public class YourGui extends GuiScreen{
     }
     @Override
     protected void actionPerformed(GuiButton button) {
+        ItemGiveMessage itemgivemessage = new ItemGiveMessage();
         if(!button.enabled) return;
         switch (button.id){
             case 23: {
@@ -89,7 +91,17 @@ public class YourGui extends GuiScreen{
                 break;
         }
         if(button.id ==0){
-            ItemGiveMessage itemgivemessage = new ItemGiveMessage();
+            heronum=0;
+            OverWatch.Network.sendToServer(itemgivemessage);
+            mc.displayGuiScreen(parentScreen);
+        }else if(button.id ==12)
+        {
+            heronum=12;
+            OverWatch.Network.sendToServer(itemgivemessage);
+            mc.displayGuiScreen(parentScreen);
+        } else if(button.id ==8)
+        {
+            heronum=8;
             OverWatch.Network.sendToServer(itemgivemessage);
             mc.displayGuiScreen(parentScreen);
         }

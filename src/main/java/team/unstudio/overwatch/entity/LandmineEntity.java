@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 public class LandmineEntity extends Entity {
     private World world;
     public int ticks = 400;
-
     public LandmineEntity(World worldIn)
     {
         super(worldIn);
@@ -36,7 +35,6 @@ public class LandmineEntity extends Entity {
     protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
 
     }
-
     @Override
     public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_) {
         this.setDead();

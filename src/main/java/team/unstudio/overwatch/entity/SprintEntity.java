@@ -12,26 +12,27 @@ import net.minecraft.world.World;
 
 public class SprintEntity extends EntityThrowable {
     public EntityPlayer player;
-    public int ticks = 3;
+    public int ticks = 100;
     int damage = 3;
 
     public SprintEntity(World par1World) {
         super(par1World);
-        setSize(10F, 10F);
+        setSize(5F, 5F);
     }
 
     public SprintEntity(World par1World, EntityLivingBase par2EntityLivingBase, int dmg) {
         super(par1World, par2EntityLivingBase);
         this.damage = dmg;
-        setSize(10F, 10F);
+        setSize(5F, 5F);
     }
 
     @Override
     protected void onImpact(MovingObjectPosition mop) {
         if (mop.typeOfHit == MovingObjectType.BLOCK) {
-            mop.sideHit = -1;
+            mop.sideHit = 1;
         }
         if (mop.typeOfHit == MovingObjectType.ENTITY) {
+            mop.sideHit = 1;
             mop.entityHit.attackEntityFrom(DamageSource.causeThornsDamage(this), damage);
         }
         setPosition(this.posX, this.posY, this.posZ);

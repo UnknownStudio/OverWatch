@@ -20,7 +20,7 @@ import team.unstudio.overwatch.entity.YuanShiEEntity;
  * Created by winston_wang on 2017/1/23.
  */
 public class YuanShi extends AbstractHero {
-    private final int skillCD[] = new int[]{130, 300, 1000};
+    private final int skillCD[] = new int[]{200, 300, 1000};
     private final ResourceLocation skillRes[] = new ResourceLocation[]{
             new ResourceLocation("overwatch", "textures/items/yuanshi1.png"),
             new ResourceLocation("overwatch", "textures/items/yuanshi2.png"),
@@ -74,7 +74,6 @@ public class YuanShi extends AbstractHero {
             }
             case 2: {
                 player.inventory.addItemStackToInventory(new ItemStack(ItemLoader.dragonsword));
-
                 break;
             }
             default:
@@ -87,8 +86,11 @@ public class YuanShi extends AbstractHero {
     public void playerTriggerInClient(int skill, EntityPlayer player) {
         switch (skill) {
             case 0: {
-                player.motionX = -Math.sin(Math.toRadians(player.rotationYaw)) * 2.5;
-                player.motionZ = Math.cos(Math.toRadians(player.rotationYaw)) * 2.5;
+                float angle = (player.rotationYaw / 180F) * 3.141593F;
+                float angle2 = (-player.rotationPitch / 180F) * 3.141593F;
+                player.motionY = MathHelper.sin(angle2)*2.5;
+                player.motionX = -MathHelper.sin(angle)*2.5;
+                player.motionZ = MathHelper.cos(angle)*2.5;
                 break;
             }
             case 1: {

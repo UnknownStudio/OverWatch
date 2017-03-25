@@ -13,13 +13,14 @@ import org.lwjgl.opengl.GL11;
  */
 public class DragonRender implements IItemRenderer {
     static public IModelCustom standModel = null;
-    static public ResourceLocation modelLocation = new ResourceLocation("overwatch", "models/item/dragonsword2.obj");
+    static public ResourceLocation modelLocation = new ResourceLocation("overwatch", "models/item/yuanshi.obj");
+    static public ResourceLocation texture = new ResourceLocation("overwatch", "models/item/yuanshi.png");
+
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         switch (type) {
             case EQUIPPED:
             case EQUIPPED_FIRST_PERSON:
-            case INVENTORY:
                 return true;
             default:
                 return false;
@@ -35,30 +36,28 @@ public class DragonRender implements IItemRenderer {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         standModel = AdvancedModelLoader.loadModel(modelLocation);
         switch (type) {
+            case ENTITY:
+                break;
             case EQUIPPED:
+                Minecraft.getMinecraft().renderEngine.bindTexture(texture);
                 GL11.glPushMatrix();
-                GL11.glRotatef(0F, 0F, 0.0F, 2F);
-                GL11.glTranslatef(90F, 0F, 0F);
-                GL11.glScalef(1f, 1f, 1f);
+                GL11.glTranslatef(-0.58F, 0.45F, 0F);
+                GL11.glScalef(0.03f, 0.03f, 0.03f);
+                GL11.glRotatef(180, 0, 0, 0);
                 standModel.renderAll();
                 GL11.glPopMatrix();
                 return;
             case EQUIPPED_FIRST_PERSON:
+                Minecraft.getMinecraft().renderEngine.bindTexture(texture);
                 GL11.glPushMatrix();
-                GL11.glRotatef(0F, 0F, 0.0F, 0F);
-                GL11.glTranslatef(90F, 0F, 0F);
-                GL11.glScalef(0.5f, 0.5f, 0.5f);
+                GL11.glTranslatef(6F, 3F, 4F);
+                GL11.glScalef(0.1f, 0.1f, 0.1f);
+                GL11.glRotatef(90,0, 0, 1);
                 standModel.renderAll();
                 GL11.glPopMatrix();
                 return;
-            case INVENTORY:
-                GL11.glPushMatrix();
-//                GL11.glRotatef(0F, 0F, 0.0F, 1F);
-                GL11.glTranslatef(90F, 0F, 0F);
-                GL11.glScalef(0.5f, 0.5f, 0.5f);
-                standModel.renderAll();
-                GL11.glPopMatrix();
-                return;
+            case FIRST_PERSON_MAP:
+                break;
             default:
                 return;
         }

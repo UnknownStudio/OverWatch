@@ -29,16 +29,15 @@ public class ItemDart extends Item {
 		tooltip.add(EnumChatFormatting.RED+"右键发射飞镖");
 		super.addInformation(stack, playerIn, tooltip, advanced);
 	}
-	
-	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
-    {
-        entityPlayer.setItemInUse(itemStack, getMaxItemUseDuration(itemStack));
-        if(!world.isRemote) { 
-        	world.spawnEntityInWorld(new DartEntity(world, entityPlayer, 4));
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
+        if(!world.isRemote){
+            world.spawnEntityInWorld(new DartEntity(world,entityPlayer,4));
         }
-        return itemStack;
-    }
-	 @Override
+		return super.onItemRightClick(itemStack, world, entityPlayer);
+	}
+	@Override
 	public Entity createEntity(World world, Entity location, ItemStack itemstack) {
 		return new DartEntity(world);
 	}

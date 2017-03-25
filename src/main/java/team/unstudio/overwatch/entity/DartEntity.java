@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class DartEntity extends EntityThrowable
 {
-	  public int ticks = 100;
+    public int ticks = 150;
     int damage = 3; 
     public DartEntity(World par1World) {
         super(par1World);
@@ -25,26 +25,26 @@ public class DartEntity extends EntityThrowable
     @Override
     protected void onImpact(MovingObjectPosition mop) {
     	if(mop.typeOfHit==MovingObjectType.BLOCK){
-    		mop.sideHit=-1;
+    	    this.setDead();
     	}
     	if(mop.typeOfHit == MovingObjectType.ENTITY){
     		mop.entityHit.attackEntityFrom(DamageSource.causeThornsDamage(this), damage);
-    	}
+            this.setDead();
+        }
         if (this.isInWater())
         {
         }
-        setPosition(this.posX, this.posY, this.posZ);
     }
 
-    protected float func_70182_d()
-    {
-        return 3.5F;
-    }
-
-    protected float getMotionFactor()
-    {
-      return 3.5F;
-    }
+//    protected float func_70182_d()
+//    {
+//        return 3.5F;
+//    }
+//
+//    protected float getMotionFactor()
+//    {
+//      return 3.5F;
+//    }
 
     protected float getGravityVelocity()
     {
@@ -68,15 +68,19 @@ public class DartEntity extends EntityThrowable
     {
       return 15728880;
     }
-    public void onEntityUpdate()
-    {
-      if (this.ticks <= 0) {
-        this.ticks = 100;
-        setDead();
-      }
-      else {
-        this.ticks -= 1;
-      }
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (this.ticks <= 0) {
+            this.ticks = 100;
+            setDead();
+        }
+        else {
+            this.ticks -= 1;
+        }
     }
-
+    protected float func_70182_d()
+    {
+        return 2F;
+    }
 }

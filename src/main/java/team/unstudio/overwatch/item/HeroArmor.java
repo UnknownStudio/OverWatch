@@ -13,9 +13,9 @@ import team.unstudio.overwatch.common.OverWatch;
 /**
  * Created by KevinWalker on 2017/2/1.
  */
-public class YuanShiArmor extends ItemArmor {
+public class HeroArmor extends ItemArmor {
     public String textname;
-    public YuanShiArmor(ItemArmor.ArmorMaterial material, int id, int slot,String name,Item Helmet,Item Chestplate,Item Leggings,Item Boots)
+    public HeroArmor(ItemArmor.ArmorMaterial material, int id, int slot,String name,Item Helmet,Item Chestplate,Item Leggings,Item Boots)
     {
         super(material, id, slot);
         this.textname=name;
@@ -35,6 +35,10 @@ public class YuanShiArmor extends ItemArmor {
     public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type) {
         if ((itemstack.getItem() == ArmorLoader.YuanshiHelmet) || (itemstack.getItem() == ArmorLoader.YuanshiChestplate) || (itemstack.getItem() == ArmorLoader.YuanshiBoots) || (itemstack.getItem() == ArmorLoader.YuanshiLeggings))
             return "overwatch:textures/models/armor/yuanshi_layer_1.png";
+        if ((itemstack.getItem() == ArmorLoader.BanzangHelmet) || (itemstack.getItem() == ArmorLoader.BanzangChestplate) || (itemstack.getItem() == ArmorLoader.BanzangBoots) || (itemstack.getItem() == ArmorLoader.BanzangLeggings))
+            return "overwatch:textures/models/armor/banzang_layer_1.png";
+        if ((itemstack.getItem() == ArmorLoader.KuangshuHelmet) || (itemstack.getItem() == ArmorLoader.KuangshuChestplate) || (itemstack.getItem() == ArmorLoader.KuangshuBoots) || (itemstack.getItem() == ArmorLoader.KuangshuLeggings))
+            return "overwatch:textures/models/armor/kuangshu_layer_1.png";
         return null;
     }
 }
